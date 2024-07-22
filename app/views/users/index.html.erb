@@ -1,0 +1,32 @@
+<h1>Users</h1>
+
+<table border="1" cellpadding="10" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Phone Numbers</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td>
+          <ul style="margin: 0; padding: 0; list-style-type: none;">
+            <% user.phone_numbers.each do |phone_number| %>
+              <li><%= phone_number.number %></li>
+            <% end %>
+          </ul>
+        </td>
+        <td>
+          <%= link_to 'Show', user_path(user), class: 'btn' %> |
+          <%= link_to 'Edit', edit_user_path(user), class: 'btn' %> |
+          <%= link_to 'Destroy', user_path(user), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New User', new_user_path, class: 'btn' %>

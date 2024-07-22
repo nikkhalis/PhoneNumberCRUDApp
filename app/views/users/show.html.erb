@@ -1,0 +1,33 @@
+<h1>User Details</h1>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<h3>Phone Numbers</h3>
+<% if @user.phone_numbers.any? %>
+  <table border="1" cellpadding="10" cellspacing="0">
+    <thead>
+      <tr>
+        <th>Phone Number</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @user.phone_numbers.each do |phone_number| %>
+        <tr>
+          <td><%= phone_number.number %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>No phone numbers available.</p>
+<% end %>
+
+<div>
+  <%= link_to "Edit this user", edit_user_path(@user) %> |
+  <%= link_to "Back to users", users_path %>
+
+  <%= button_to "Destroy this user", @user, method: :delete %>
+</div>

@@ -1,0 +1,47 @@
+<%= form_with(model: user, local: true) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation" style="color: red;">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <ul>
+        <% user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :name, class: 'form-label' %>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
+
+  <h3>Phone Numbers</h3>
+  <div id="phone_numbers">
+    <%= form.fields_for :phone_numbers do |phone_form| %>
+      <div class="form-group nested-fields">
+        <%= phone_form.label :number, class: 'form-label' %>
+        <%= phone_form.text_field :number, class: 'form-control' %>
+        <%= link_to 'Remove', '#', class: 'remove_fields' %>
+      </div>
+    <% end %>
+  </div>
+
+  <%= link_to 'Add Phone Number', '#', id: 'add_phone_number' %>
+
+  <div class="actions">
+    <%= form.submit 'Save', class: 'btn btn-primary' %>
+  </div>
+
+  <!-- Hidden template for new phone number fields -->
+  <div id="phone_number_template" style="display: none;">
+    <%= form.fields_for :phone_numbers, PhoneNumber.new do |phone_form| %>
+      <%= phone_form.hidden_field :_destroy %>
+      <div class="form-group nested-fields">
+        <%= phone_form.label :number, class: 'form-label' %>
+        <%= phone_form.text_field :number, class: 'form-control' %>
+        <%= link_to 'Remove', '#', class: 'remove_fields' %>
+      </div>
+    <% end %>
+  </div>
+
+<% end %>
