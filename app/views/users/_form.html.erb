@@ -32,7 +32,6 @@
     <%= form.submit 'Save', class: 'btn btn-primary' %>
   </div>
 
-  <!-- Hidden template for new phone number fields -->
   <div id="phone_number_template" style="display: none;">
     <%= form.fields_for :phone_numbers, PhoneNumber.new do |phone_form| %>
       <%= phone_form.hidden_field :_destroy %>
