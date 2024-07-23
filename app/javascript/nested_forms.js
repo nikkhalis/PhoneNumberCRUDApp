@@ -1,26 +1,26 @@
-document.addEventListener("turbolinks:load", () => {
-  function removeFields(event) {
-    event.preventDefault();
-    let field = event.target.closest(".nested-fields");
-    field.querySelector("input[type='hidden']").value = 1;
-    field.style.display = "none";
+document.addEventListener('turbo:load', () => {
+  function bindRemoveFields() {
+    document.querySelectorAll('.remove_fields').forEach(button => {
+      button.addEventListener('click', (event) => {
+        event.preventDefault();
+        let field = button.closest('.nested-fields');
+        if (field.dataset.newRecord === 'true') {
+          field.remove();
+        } else {
+          field.style.display = 'none';
+          field.querySelector("input[name*='_destroy']").value = '1';
+        }
+      });
+    });
   }
 
-  function addFields(event) {
+  bindRemoveFields();
+
+  document.getElementById('add_phone_number').addEventListener('click', (event) => {
     event.preventDefault();
     let time = new Date().getTime();
-    let template = document.querySelector(".nested-fields.template");
-    let newFields = template.cloneNode(true);
-    newFields.classList.remove("template");
-    newFields.querySelectorAll("input").forEach((input) => {
-      input.name = input.name.replace(/\d+/, time);
-    });
-    document.getElementById("phone_numbers").appendChild(newFields);
-  }
-
-  document.querySelectorAll(".remove_fields").forEach((button) => {
-    button.addEventListener("click", removeFields);
+    let template = document.querySelector('#phone_number_template').innerHTML.replace(/NEW_RECORD/g, time);
+    document.getElementById('phone_numbers').insertAdjacentHTML('beforeend', template);
+    bindRemoveFields();
   });
-
-  document.getElementById("add_phone_number").addEventListener("click", addFields);
 });

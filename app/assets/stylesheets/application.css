@@ -1,3 +1,18 @@
+/* Ensure the footer stays at the bottom */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
 /* Styles for form fields */
 .form-group {
   margin-bottom: 1rem;
@@ -40,6 +55,17 @@
 .btn-primary:hover {
   background-color: #0056b3;
   border-color: #004085;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+  border-color: #545b62;
 }
 
 .remove_fields {
@@ -99,10 +125,19 @@ header {
 }
 
 .navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  max-height: 50px; /* Adjust the height of the logo as needed */
+}
+
+.brand-text {
   font-size: 1.5rem;
   font-weight: bold;
   color: #343a40;
-  text-decoration: none;
+  margin-left: 0.5rem;
 }
 
 .navbar-nav {
@@ -134,7 +169,45 @@ header {
   color: #fff;
 }
 
+/* Footer styling */
+footer {
+  background-color: #f8f9fa;
+  padding: 1rem;
+  text-align: center;
+  border-top: 1px solid #dee2e6;
+}
+
+/* Footer text styling */
+.footer-text {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #6c757d;
+}
+
 /* Main content area styling */
 main {
   padding: 2rem;
+}
+
+/* HomePage */
+.container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #0056b3;
 }

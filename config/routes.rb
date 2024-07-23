@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  root "users#index"  # This sets the root path to the index action of the Users controller
+  root 'home#index'
   resources :users
 end

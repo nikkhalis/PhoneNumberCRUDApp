@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PhoneNumApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Welcome to Phone Number Book App</h1>
+      <p>
+        Task: Write an application using Ruby on Rails language 
+        <br>which can Create, Read, Update, and Delete user phone numbers. 
+        <br>The app must store names & phone numbers (multiple phone numbers) 
+        <br>using a web-based GUI.
+      </p>
+      <p>
+        e.g: Amir Haris Ahmad has many phone numbers 0129522020, 01934567231 & 0355234445
+      </p>
+      <p><strong>Use ActiveRecord relationship.</strong></p>
+      <%= link_to 'Get Started', users_path, class: 'btn btn-primary' %>
+    </div>
+  </body>
+</html>
