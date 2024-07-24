@@ -130,7 +130,7 @@ header {
 }
 
 .logo {
-  max-height: 50px; /* Adjust the height of the logo as needed */
+  max-height: 50px;
 }
 
 .brand-text {
@@ -142,7 +142,7 @@ header {
 
 .navbar-nav {
   list-style: none;
-  padding: 0;
+  padding: 0.1;
   margin: 0;
   display: flex;
 }
@@ -210,4 +210,13 @@ main {
 
 .btn:hover {
   background-color: #0056b3;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: lightblue;
+  /*background: url('/assets/background.jpg') no-repeat center center fixed;
+  background-size: 1530px;*/
 }
